@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="script.css">
+  <title>Basic Vue Js - HelloWorld App</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <div v-if="checkLiked==0" class="text mt-4">
+      Click Star to like!
+    </div>
+    <div v-else class="text mt-4">
+      You like {{ checkLiked }} Photos !!
+    </div>
+    <div class="flex flex-row space-x-10 mt-10 justify-center">
+      <div v-for="(car,index) in cars">
+        <div id="container" @mouseover="hovers(index)" @mouseleave="hoversOff(index)" class=" h-96 w-96 overflow-hidden">
+          <div id="starcontainer" @click="click(index)" v-show="car.hover">
+            <div v-if="car.liked == false  " class="material-icons absolute mt-2 ml-2 z-10 cursor-pointer 
+                focus:bg-gray-800">
+              star_outline
+            </div>
+            <div v-else class="material-icons absolute mt-2 ml-2  cursor-pointer z-20 ">
+
+              star
+
+            </div>
+          </div>
+          <img v-bind:src="car.img" class="hover:opacity-75 z-0 ">
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- my main.js -->
+  <script src="./main.js">   </script>
+</body>
+
+</html>
